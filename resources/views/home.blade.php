@@ -82,7 +82,7 @@
 </nav>
 
 
-<form action="/home/create" method="post">
+<form action="/product/create" method="post">
     <div class="form-group">
         @csrf
         <label>Music Ins name</label>
