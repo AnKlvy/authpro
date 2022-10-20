@@ -10,14 +10,16 @@ class Products extends Model
     use HasFactory;
 
     protected $fillable=[
+        'id',
         'prname',
         'price',
-        'description'
+        'description',
+        'image'
 //        'proddate'
     ];
 
     public function customers(){
-        return $this->belongsToMany(Customers::class)->using(Cart::class);
+        return $this->belongsToMany(Customers::class, 'carts', 'product_id', 'customer_id')->using(Cart::class);
 
     }
 

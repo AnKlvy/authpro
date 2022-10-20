@@ -9,9 +9,13 @@ class Customers extends Model
 {
     use HasFactory;
 
-
+    protected $fillable=[
+        'id',
+        'cusname',
+//        'proddate'
+    ];
     public function users(){
-        return $this->belongsTo(Users::class);
+        return $this->belongsTo(User::class);
     }
 
     public function products(){

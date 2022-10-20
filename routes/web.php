@@ -16,12 +16,15 @@ use Illuminate\Support\Facades\Route;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-Route::get('/p2', [\App\Http\Controllers\HomeController::class, 'p2']);
+Route::get('/additem', [\App\Http\Controllers\HomeController::class, 'addItem']);
+Route::get('/cart', [\App\Http\Controllers\HomeController::class, 'cart']);
+Route::get('/details/{id}', [\App\Http\Controllers\HomeController::class, 'details']);
 Route::get('/p3', [\App\Http\Controllers\HomeController::class, 'p3']);
 Route::get('/p4', [\App\Http\Controllers\HomeController::class, 'p4']);
 Route::get('/p5', [\App\Http\Controllers\HomeController::class, 'p5']);
 Route::post('/product/create', [\App\Http\Controllers\HomeController::class, 'create']);
-Route::get('/product/save/{product}', [\App\Http\Controllers\HomeController::class, 'save']);
+Route::post('/product/save/{product}', [\App\Http\Controllers\HomeController::class, 'save']);
+Route::post('/addToCart', [\App\Http\Controllers\HomeController::class, 'addToCart']);
 Route::get('/product/delete/{product}', [\App\Http\Controllers\HomeController::class, 'delete']);
 
 
