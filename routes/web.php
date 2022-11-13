@@ -29,6 +29,6 @@ Route::get('/product/delete/{product}', [\App\Http\Controllers\HomeController::c
 
 
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
