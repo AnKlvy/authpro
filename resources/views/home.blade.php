@@ -68,7 +68,7 @@
     <div class="col-sm-3">
         <div class="card">
             <form action="/addToCart" method="post">
-                @csrf
+{{--                @csrf--}}
         {{--                    <img class="card-img-top" src="..." alt="Card image cap">--}}
                     <div class="card-body">
                         <p hidden>  {{$product->id}}</p>
