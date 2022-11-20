@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,4 +30,4 @@ Route::post('/product/save/{product}', [App\Http\Controllers\API\HomeController:
 //Route::post('/addToCart', [\App\Http\Controllers\HomeController::class, 'addToCart']);
 Route::get('/product/delete/{product}', [App\Http\Controllers\API\HomeController::class, 'delete']);
 //Auth::routes();
-Route::get('/', [App\Http\Controllers\API\HomeController::class, 'index'])->name('home');
+Route::get('/all', [App\Http\Controllers\API\HomeController::class, 'index']);

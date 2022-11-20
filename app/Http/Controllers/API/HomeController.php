@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\HomeResource;
 use App\Models\Products;
 use App\Services\HomeService;
-use http\Env\Request;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,6 @@ class HomeController extends Controller
 
   public function __construct(HomeService $homeService){
       $this->homeService= $homeService;
-      $this->middleware('auth');
   }
 
   public function index(){
@@ -22,7 +22,7 @@ class HomeController extends Controller
 
           return response()-> json([
               'status'=>true,
-              'products'=>$products
+              'products'=>HomeResource::collection($products)
           ]);
       } catch (\Exception $exception){
           return response()-> json([
@@ -48,17 +48,26 @@ $products = $this->homeService->details($id);
    public function add(Request $request){
       $this->homeService->add($request);
 
-      return redirect('/');
+       return response()->json([
+           'status' => true,
+           'message' => 'Successfully added'
+       ]);
    }
 
-   public function update(Request $r){
-      $this->homeService_>$this->update($r);
-      return redirect('/');
+   public function update(Request $r, Products $product){
+      $this->homeService->update($r, $product);
+      return response()->json([
+          'status' => true,
+          'message' => 'Successfully updated'
+      ]);
    }
 
    public function delete(Products $product){
       $this->homeService->delete($product);
-      return redirect('/');
+       return response()->json([
+           'status' => true,
+           'message' => 'Successfully deleted'
+       ]);
    }
 
 }

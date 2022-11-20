@@ -19,11 +19,11 @@ class Customers extends Model
     }
 
     public function products(){
-        return $this->belongsToMany(Products::class)->using(Cart::class);
+        return $this->belongsToMany(Products::class, 'carts', 'customer_id', 'product_id')->using(Cart::class);
     }
 
-    public function shipments(){
-        return $this->belongsToMany(Shipments::class)->using(Products_Shipments::class);
-    }
+//    public function shipments(){
+//        return $this->belongsToMany(Shipments::class)->using(Products_Shipments::class);
+//    }
 
 }

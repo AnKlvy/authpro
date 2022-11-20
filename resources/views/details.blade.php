@@ -66,7 +66,7 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
                                 </button>
-                                <button class="btn btn-danger">Delete</button>
+                                <a class="btn btn-danger" href="{{url('/product/delete', ['$product'=>$products->id])}}">Delete</a>
                             </div>
                         </div>
                     </form>

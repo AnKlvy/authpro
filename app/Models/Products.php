@@ -14,7 +14,7 @@ class Products extends Model
         'prname',
         'price',
         'description',
-        'image'
+        'image',
 //        'proddate'
     ];
 

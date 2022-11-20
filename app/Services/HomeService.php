@@ -3,13 +3,13 @@
 namespace App\Services;
 
 use App\Models\Products;
-use http\Env\Request;
+use Illuminate\Http\Request;
 
 interface HomeService
 {
 public function getAll();
 public function details($id);
 public function add(Request $r);
-public function update(Request $r);
+public function update(Request $r, $product);
 public function delete(Products $p);
 }

@@ -4,7 +4,7 @@ namespace App\Services\Impl;
 
 use App\Models\Products;
 use App\Services\HomeService;
-use http\Env\Request;
+use Illuminate\Http\Request;
 
 class HomeServiceImpl implements HomeService
 {
@@ -33,22 +33,21 @@ class HomeServiceImpl implements HomeService
     {
         Products::create($request->all());
 
-        return redirect('/');
+//        return redirect('/');
     }
 
-    public function update(Request $r)
+    public function update(Request $r, $product)
     {
-        $product = Products::find($r->id);
         $product->prname = $r->prname;
         $product->price = $r->price;
         $product->description = $r->description;
         $product->save();
-        return redirect('/');
+//        return redirect('/');
     }
 
     public function delete(Products $product)
     {
         $product->delete();
-        return redirect('/');
+//        return redirect('/');
     }
 }
