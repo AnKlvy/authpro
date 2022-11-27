@@ -25,14 +25,17 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/p3', [\App\Http\Controllers\HomeController::class, 'p3']);
 //Route::get('/p4', [\App\Http\Controllers\HomeController::class, 'p4']);
 //Route::get('/p5', [\App\Http\Controllers\HomeController::class, 'p5']);
+//Route::post('/addToCart', [\App\Http\Controllers\HomeController::class, 'addToCart']);
+
 Route::post('/product/create', [App\Http\Controllers\API\HomeController::class, 'add']);
 Route::post('/product/save/{product}', [App\Http\Controllers\API\HomeController::class, 'update']);
-//Route::post('/addToCart', [\App\Http\Controllers\HomeController::class, 'addToCart']);
 Route::post('/product/delete/{product}', [App\Http\Controllers\API\HomeController::class, 'delete']);
+
+
 //Auth::routes();
 Route::get('/all', [App\Http\Controllers\API\HomeController::class, 'index']);
 
 Route::group(['prefix' => 'user'], function () {
-    Route::post('/register', [\App\Http\Controllers\API\AuthController::class, 'register']);
-    Route::post('/login', [\App\Http\Controllers\API\AuthController::class, 'login']);
+    Route::post('/register', [App\Http\Controllers\API\AuthController::class, 'register']);
+    Route::post('/login', [App\Http\Controllers\API\AuthController::class, 'login']);
 });

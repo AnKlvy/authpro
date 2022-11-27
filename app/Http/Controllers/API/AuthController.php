@@ -47,7 +47,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)){
             return response()->json([
                 'success'=>true,
-                'token'=>$user->createToken()->accessToken
+                'token'=>$user->createToken($user->email)->accessToken
             ]);
         }
 

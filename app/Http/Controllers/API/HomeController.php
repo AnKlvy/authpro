@@ -40,10 +40,10 @@ $products = $this->homeService->details($id);
        ]);
    }
 
-    public function addItem()
-    {
-        return view('additem');
-    }
+//    public function addItem()
+//    {
+//        return view('additem');
+//    }
 
    public function add(Request $request){
       $this->homeService->add($request);
