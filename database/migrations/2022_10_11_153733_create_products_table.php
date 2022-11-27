@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->bigInteger('price');
             $table->string('prname');
             $table->string('description');
-            $table->string('image')->default('0');
+//            $table->string('image')->default('0');
             $table->timestamps();
 //            $table->foreignId('customer_id')->constrained('customers');
         });

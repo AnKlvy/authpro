@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
-Route::get('/additem', [App\Http\Controllers\API\HomeController::class, 'addItem']);
+//Route::get('/additem', [App\Http\Controllers\API\HomeController::class, 'addItem']);
 //Route::get('/cart', [\App\Http\Controllers\HomeController::class, 'cart']);
 //Route::get('/details/{id}', [\App\Http\Controllers\HomeController::class, 'details']);
 //Route::get('/p3', [\App\Http\Controllers\HomeController::class, 'p3']);
@@ -28,6 +28,11 @@ Route::get('/additem', [App\Http\Controllers\API\HomeController::class, 'addItem
 Route::post('/product/create', [App\Http\Controllers\API\HomeController::class, 'add']);
 Route::post('/product/save/{product}', [App\Http\Controllers\API\HomeController::class, 'update']);
 //Route::post('/addToCart', [\App\Http\Controllers\HomeController::class, 'addToCart']);
-Route::get('/product/delete/{product}', [App\Http\Controllers\API\HomeController::class, 'delete']);
+Route::post('/product/delete/{product}', [App\Http\Controllers\API\HomeController::class, 'delete']);
 //Auth::routes();
 Route::get('/all', [App\Http\Controllers\API\HomeController::class, 'index']);
+
+Route::group(['prefix' => 'user'], function () {
+    Route::post('/register', [\App\Http\Controllers\API\AuthController::class, 'register']);
+    Route::post('/login', [\App\Http\Controllers\API\AuthController::class, 'login']);
+});

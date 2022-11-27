@@ -61,7 +61,7 @@
                                         aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <h5 text="Are you sure?"></h5>
+                                <h5 text="Are you sure?">Are you sure?</h5>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close

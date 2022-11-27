@@ -16,6 +16,7 @@ class HomeResource extends JsonResource
     {
         return
             [
+                'id'=>$this->id,
         'prname'=>$this->prname
             ];
     }

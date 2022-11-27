@@ -80,11 +80,13 @@ class HomeController extends Controller
 
         $product = Products::find($r->prid);
 //        $customer = Customers::find
-        $customer = Customers::find(Auth::id());
-        $product->customers()->attach(Auth::user());
+//        $customer = Customers::find(Auth::id());
+//        $product->customers()->attach(Auth::user());
         $product->prname = $r->prname;
         $product->price = $r->price;
         $product->description = $r->description;
+//        $url = $r->file('image')->store('images');
+//        $product->image = $url;
         $product->save();
         return redirect('/');
 
@@ -93,7 +95,17 @@ class HomeController extends Controller
 
     public function create(Request $request)
     {
-
+        //image
+//        $validated=$request->validate([
+//            'title' => 'required|max:255',
+//            'content' => 'required',
+//            'image'=> 'required|image|max:2048'
+//        ]);
+//
+//        $fileName = time().$request->file('image')->getClientOriginalName();
+//        $image_path = $request->file('image')->storeAs('products', $fileName,'public');
+//        $validated['image'] = '/storage/'.$image_path;
+//        Products::create($request->$validated);
         Products::create($request->all());
 
         return redirect('/');

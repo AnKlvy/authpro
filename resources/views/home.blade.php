@@ -71,10 +71,13 @@
                 @csrf
         {{--                    <img class="card-img-top" src="..." alt="Card image cap">--}}
                     <div class="card-body">
+                        <th>
+                            <img src="storage/{{$product->image}}" width="100px" alt="image" style="max-width: 60px">
+                        </th>
                         <p hidden>  {{$product->id}}</p>
                         <h4 class="card-title">{{$product->prname}}</h4>
                         <h7 class="card-title fw-bold">Price: {{$product->price}} $</h7>
-                        <p class="card-text border bg-light " style="border-radius: 10px">DESCRIPTION: <BR>{{$product->description}}</p>
+
 {{--                        <a href="{{url('/product/save', ['$product'=>$product->id])}}">Save</a>--}}
 
 
