@@ -27,11 +27,11 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/p5', [\App\Http\Controllers\HomeController::class, 'p5']);
 //Route::post('/addToCart', [\App\Http\Controllers\HomeController::class, 'addToCart']);
 
-Route::post('/product/create', [App\Http\Controllers\API\HomeController::class, 'add']);
-Route::post('/product/save/{product}', [App\Http\Controllers\API\HomeController::class, 'update']);
-Route::post('/product/delete/{product}', [App\Http\Controllers\API\HomeController::class, 'delete']);
-
-
+Route::group(['prefix' => 'product', 'middleware'=>['auth:api', 'admin']], function () {
+    Route::post('/create', [App\Http\Controllers\API\HomeController::class, 'add']);
+    Route::post('/save/{product}', [App\Http\Controllers\API\HomeController::class, 'update']);
+    Route::post('/delete/{product}', [App\Http\Controllers\API\HomeController::class, 'delete']);
+});
 //Auth::routes();
 Route::get('/all', [App\Http\Controllers\API\HomeController::class, 'index']);
 

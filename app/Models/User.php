@@ -22,6 +22,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, 'user_roles');
 
     }
+
+    public function isAdmin(){
+        return $this->role()->where('slug', 'admin')->exists();
+    }
     /**
      * The attributes that are mass assignable.
      *
