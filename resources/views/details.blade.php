@@ -6,7 +6,7 @@
 
 
 <body>
-@include('layouts.nav')
+
 @include('layouts.app')
 
 

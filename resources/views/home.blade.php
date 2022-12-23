@@ -29,7 +29,6 @@
 
 
 <body>
-@include('layouts.nav')
 @include('layouts.app')
 
 
@@ -72,16 +71,16 @@
         {{--                    <img class="card-img-top" src="..." alt="Card image cap">--}}
                     <div class="card-body">
                         <th>
-                            <img src="storage/{{$product->image}}" width="100px" alt="image" style="max-width: 60px">
+                            <img src="{{$product->image}}" alt="image" style="max-width: 290px">
                         </th>
-                        <p hidden>  {{$product->id}}</p>
+{{--                        <p hidden>  {{$product->id}}</p>--}}
                         <h4 class="card-title">{{$product->prname}}</h4>
                         <h7 class="card-title fw-bold">Price: {{$product->price}} $</h7>
 
 {{--                        <a href="{{url('/product/save', ['$product'=>$product->id])}}">Save</a>--}}
 
 
-                            <input hidden name="prid" value="{{$product->id}}">
+{{--                            <input hidden name="prid" value="{{$product->id}}">--}}
                             <button class="btn btn-primary">Add to cart</button>
 
                         <a href="{{url('/product/delete', ['$product'=>$product->id])}}">Delete</a>

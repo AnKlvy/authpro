@@ -6,13 +6,13 @@
 
 
 <body>
-@include('layouts.nav')
+
 @include('layouts.app')
 
 <div class="container">
     <div class="row mt-5">
         <div class="col-6 offset-3">
-            <form action="/product/create" method="post">
+            <form action="/product/create" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     @csrf
                     <label>Name</label>
@@ -30,6 +30,7 @@
                 {{--        <label>proddate</label>--}}
                 {{--        <input type="date" name="proddate" hidden  class="form-control" aria-describedby="emailHelp" value="">--}}
                 {{--    </div>--}}
+                <br>
                 <div class="form-group">
                     <div class="input-group">
                         <div class="custom-file">

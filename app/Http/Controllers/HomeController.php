@@ -96,17 +96,19 @@ class HomeController extends Controller
     public function create(Request $request)
     {
         //image
-//        $validated=$request->validate([
-//            'title' => 'required|max:255',
-//            'content' => 'required',
-//            'image'=> 'required|image|max:2048'
-//        ]);
-//
-//        $fileName = time().$request->file('image')->getClientOriginalName();
-//        $image_path = $request->file('image')->storeAs('products', $fileName,'public');
-//        $validated['image'] = '/storage/'.$image_path;
-//        Products::create($request->$validated);
-        Products::create($request->all());
+        $validated=$request->validate([
+            'prname' => 'required|max:255',
+            'price' => 'required|numeric',
+            'description'=> 'required|max:1000',
+            'image'=> 'required|image|max:2048'
+        ]);
+
+        $fileName = time().$request->file('image')->getClientOriginalName();
+        $image_path = $request->file('image')->storeAs('products', $fileName,'public');
+        $validated['image'] = '/storage/'.$image_path;
+
+        Products::create($validated);
+//        Products::create($request->all());
 
         return redirect('/');
     }

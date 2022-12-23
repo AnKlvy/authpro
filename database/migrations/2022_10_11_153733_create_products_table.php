@@ -17,10 +17,10 @@ class CreateProductsTable extends Migration
             $table->id();
 //            $table->unsignedBigInteger('customer_id');
 //            $table->date('proddate');
-            $table->bigInteger('price');
             $table->string('prname');
+            $table->bigInteger('price')->default(0);
             $table->string('description');
-//            $table->string('image')->default('0');
+            $table->string('image')->default('0');
             $table->timestamps();
 //            $table->foreignId('customer_id')->constrained('customers');
         });
