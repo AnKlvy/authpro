@@ -19,7 +19,7 @@
 
                 <div class="form-group">
                     <label>
-                    <img src="{{$products->image}}" alt="image" style="max-width: 290px">
+                        <img src="{{$products->image}}" alt="image" style="max-width: 290px">
                     </label>
                     <input type="file" class="form-control" name="image" value="{{$products->image}}">
                 </div>
@@ -41,7 +41,9 @@
                     <label>
                         DESCRIPTION :
                     </label>
-                    <input size="60px" type="text" class="form-control" name="description" value="{{$products->description}}">
+                    <textarea class="form-control" rows="3" name="description">
+{{$products->description}}
+                    </textarea>
                 </div>
 
                 <br>
@@ -74,7 +76,8 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
                                 </button>
-                                <a class="btn btn-danger" href="{{url('/delete', ['$product'=>$products->id])}}">Delete</a>
+                                <a class="btn btn-danger"
+                                   href="{{url('/delete', ['$product'=>$products->id])}}">Delete</a>
                             </div>
                         </div>
                     </form>
