@@ -26,9 +26,7 @@
             <div class="container">
 
                 <a class="navbar-brand" href="/">MUSIC STORE</a>
-{{--                @if(Auth::user()->isAdmin())--}}
-                <a class="nav-link active" aria-current="page" href="/additem">Add Instrument</a>
-{{--                @endif--}}
+
                 <a class="nav-link active" aria-current="page" href="/cart"><object data="../../../storage/app/public/localimages/svg/shopping-cart-outline-svgrepo-com.svg" width="20px" height="20px"> </object>Cart</a>
                 <a class="nav-link active" aria-current="page" href="/">Page 1</a>
                 <a class="nav-link active" aria-current="page" href="/p4">Page 4</a>
@@ -61,6 +59,9 @@
                                 </li>
                             @endif
                         @else
+                                            @if(Auth::user()->isAdmin())
+                            <li> <a class="nav-link active" aria-current="page" href="/additem">Add Instrument</a></li>
+                                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
