@@ -10,7 +10,7 @@ class Role extends Model
 
     use HasFactory;
 
-    //dlya oshibki
+    //dlya oshibki (vozmozno v api)
 //    public function users(){
 //        return $this->belongsToMany(User::class, 'user_roles');
 //    }

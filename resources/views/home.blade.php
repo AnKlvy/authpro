@@ -64,7 +64,7 @@
 
                 <div class="col-md-6 col-lg-4 col-xl-3">
                     <div id="product{{$product->id}}" class="single-product">
-                        <div class="part-1">
+                        <div class="part-1" data-bs-toggle="modal" data-bs-target="#exampleModal{{$product->id}}">
 
                             <!--style="background: url({$product->image}}) no-repeat center;background-size: cover;transition: all 0.3s"-->
                             <ul>
@@ -76,9 +76,12 @@
                                                style="width: 70px; background: #53a403; color:white;"><i>Edit</i></a>
                                         </li>
                                     @endif
-                                <li><a class="bg-danger" href="{{url('details', $product->id)}} "
-                                       style="width: 70px; color:white;"><i>Details</i></a>
+{{--                                <li><a class="bg-danger" href="{{url('details', $product->id)}} "--}}
+{{--                                       style="width: 70px; color:white;"><i>Details</i></a>--}}
                                 </li>
+{{--                                <li> <button type="button" class="btn btn-primary bg-danger" style="border-radius: 0; border-color: darkred" data-bs-toggle="modal" data-bs-target="#exampleModal{{$product->id}}">--}}
+{{--                                        <i>Details</i>--}}
+{{--                                    </button></li>--}}
 
                             </ul>
                         </div>
@@ -88,7 +91,11 @@
                             <h4 class="product-price text-danger">${{$product->price}}</h4>
                         </div>
                     </div>
+                    @include('details')
+
                 </div>
+                <!-- Modal -->
+
             @endforeach
         </div>
     </div>
