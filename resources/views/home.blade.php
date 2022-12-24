@@ -62,9 +62,13 @@
                     }
                 </style>
 
-                <div class="col-md-6 col-lg-4 col-xl-3">
+                <div
+                    class="col-md-6 col-lg-4 col-xl-3"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal{{$product->id}}"
+                    style="cursor: pointer">
                     <div id="product{{$product->id}}" class="single-product">
-                        <div class="part-1" data-bs-toggle="modal" data-bs-target="#exampleModal{{$product->id}}">
+                        <div class="part-1" >
 
                             <!--style="background: url({$product->image}}) no-repeat center;background-size: cover;transition: all 0.3s"-->
                             <ul>

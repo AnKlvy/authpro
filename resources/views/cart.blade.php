@@ -23,7 +23,7 @@
                                         <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
                                         <h6 class="mb-0 text-muted"><!--3 items--></h6>
                                     </div>
-                                    @foreach($customers->products as $product)
+{{--                                    @foreach($customers->products as $product)--}}
                                     <hr class="my-4">
 
                                     <div class="row mb-4 d-flex justify-content-between align-items-center">
@@ -34,7 +34,7 @@
                                         </div>
                                         <div class="col-md-3 col-lg-3 col-xl-3">
                                             <h6 class="text-muted"><!--Shirt--></h6>
-                                            <h6 class="text-black mb-0">{{$product->prname}}</h6>
+                                            <h6 class="text-black mb-0">{{--{{$product->prname}}--}}</h6>
                                         </div>
                                         <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                                             <button class="btn btn-link px-2"

@@ -5,7 +5,8 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal{{$product->id}}" tabindex="-1"
-     aria-labelledby="exampleModalLabel{{$product->id}}" aria-hidden="true">
+     aria-labelledby="exampleModalLabel{{$product->id}}" aria-hidden="true"
+style="cursor: default">
     <div class="modal-dialog">
         <div class="modal-content" style="width: 800px">
             <div class="modal-header">
