@@ -25,12 +25,14 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
 
-                <a class="navbar-brand" href="/">MUSIC SHOP</a>
-                <a class="nav-link active" aria-current="page" href="/">Page 1</a>
+                <a class="navbar-brand" href="/">MUSIC STORE</a>
+                @if(Auth::user()->isAdmin())
                 <a class="nav-link active" aria-current="page" href="/additem">Add Instrument</a>
-                <a class="nav-link active" aria-current="page" href="/cart">Cart</a>
+                @endif
+                <a class="nav-link active" aria-current="page" href="/cart"><object data="../../../storage/app/public/localimages/svg/shopping-cart-outline-svgrepo-com.svg" width="20px" height="20px"> </object>Cart</a>
+                <a class="nav-link active" aria-current="page" href="/">Page 1</a>
                 <a class="nav-link active" aria-current="page" href="/p4">Page 4</a>
-                <a class="nav-link active" aria-current="page" href="/p5">Page 5</a>
+{{--                <a class="nav-link active" aria-current="page" href="/p5">Page 5</a>--}}
             </div>
             <div class="container">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -82,9 +84,12 @@
             </div>
         </nav>
 
+
+
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+
 </body>
 </html>

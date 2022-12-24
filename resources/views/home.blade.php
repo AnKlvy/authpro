@@ -1,103 +1,98 @@
-{{--@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection--}}
-
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     @include('layouts.header')
+
 </head>
 
 
 <body>
 @include('layouts.app')
 
+{{--Carousel--}}
+<div class="container col col-xxl">
+    <div id="carouselExampleIndicators" class=" carousel slide" data-bs-ride="true">
 
-<div class="container">
-{{--    <div class="row mt-5">--}}
-{{--        <div class="col-sm-12">--}}
-{{--            <table class="table">--}}
-{{--                <thead>--}}
-{{--                <th>Name</th>--}}
-{{--                <th>Price</th>--}}
-{{--                <th>Description</th>--}}
-{{--                </thead>--}}
-{{--                <tbody>--}}
-<div class="card-group">
-                @foreach($products as $product)
-{{--                    <tr>--}}
-{{--                        <td hidden>--}}
-{{--                            {{$product->id}}--}}
-{{--                        </td>--}}
-{{--                        <td>--}}
-{{--                            {{$product->prname}}--}}
-{{--                        </td>--}}
-{{--                        <td>--}}
-{{--                            {{$product->price}}--}}
-{{--                        </td>--}}
-{{--                        <td>--}}
-{{--                            {{$product->description}}--}}
-{{--                        </td>--}}
-{{--                        <td>--}}
-{{--                            <a href="{{url('/product/save', ['$product'=>$product->id])}}">Save</a>--}}
-{{--                            <a href="{{url('/product/delete', ['$product'=>$product->id])}}">Delete</a>--}}
-{{--                        </td>--}}
-{{--                        <td><a href='{{url('details', $product->id)}}' class="btn btn-info btn-sm">DETAILS</a></td>--}}
-{{--                    </tr>--}}
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="storage/localimages/carousel/GIT_-Fame_20th_EN.webp" class="d-block w-100" alt="1....................">
+            </div>
+            <div class="carousel-item">
+                <img src="storage/localimages/carousel/GIT_JaD_Vintage_EN.webp" class="d-block w-100" alt="2....................">
+            </div>
+            <div class="carousel-item">
+                <img src="storage/localimages/carousel/MS_50-Years-Deals.webp" class="d-block w-100" alt="3....................">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
 
-    <div class="col-sm-3">
-        <div class="card">
-            <form action="/addToCart" method="post">
-                @csrf
-        {{--                    <img class="card-img-top" src="..." alt="Card image cap">--}}
-                    <div class="card-body">
-                        <th>
-                            <img src="{{$product->image}}" alt="image" style="max-width: 290px">
-                        </th>
-{{--                        <p hidden>  {{$product->id}}</p>--}}
-                        <h4 class="card-title">{{$product->prname}}</h4>
-                        <h7 class="card-title fw-bold">Price: {{$product->price}} $</h7>
+<section class="section-products">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="header">
+                    {{--                    <h3>Featured Product</h3>--}}
+                    <h2>Popular Products</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Single Product -->
+            @foreach($products as $product)
 
-{{--                        <a href="{{url('/product/save', ['$product'=>$product->id])}}">Save</a>--}}
+                <style>
+                    .section-products #product{{$product->id}} .part-1::before {
+                        background: url({{$product->image}}) no-repeat center;
+                        background-size: cover;
+                        transition: all 0.3s;
+                    }
+                </style>
 
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div id="product{{$product->id}}" class="single-product">
+                        <div class="part-1">
 
-{{--                            <input hidden name="prid" value="{{$product->id}}">--}}
-                            <button class="btn btn-primary">Add to cart</button>
+                            <!--style="background: url({$product->image}}) no-repeat center;background-size: cover;transition: all 0.3s"-->
+                            <ul>
+                                {{--                                <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>--}}
+                                {{--                                <li><a href="#"><i class="fas fa-heart"></i></a></li>--}}
+                                {{--                                <li><a href="#"><i class="fas fa-plus"></i></a></li>--}}
+                                    @if(Auth::user()->isAdmin())
+                                        <li><a href="{{url('edit', $product->id)}} "
+                                               style="width: 70px; background: #53a403; color:white;"><i>Edit</i></a>
+                                        </li>
+                                    @endif
+                                <li><a class="bg-danger" href="{{url('details', $product->id)}} "
+                                       style="width: 70px; color:white;"><i>Details</i></a>
+                                </li>
 
-                        <a href="{{url('/product/delete', ['$product'=>$product->id])}}">Delete</a>
-                        <a href='{{url('details', $product->id)}}' class="btn btn-info btn-sm">DETAILS</a>
+                            </ul>
+                        </div>
+                        <div class="part-2">
+                            <h3 class="product-title">{{$product->prname}}</h3>
+                            {{--                            <h4 class="product-old-price">$79.99</h4>--}}
+                            <h4 class="product-price text-danger">${{$product->price}}</h4>
+                        </div>
                     </div>
-            </form>
+                </div>
+            @endforeach
         </div>
     </div>
+</section>
 
-                @endforeach
-{{--                </tbody>--}}
-{{--            </table>--}}
-</div>
-</div>
 </body>
 </html>
-<?php
-
-
-

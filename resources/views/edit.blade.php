@@ -13,9 +13,17 @@
 <div class="container">
     <div class="row mt-5">
         <div class="col-6 offset-3">
-            <form action="{{url('/product/save', ['$product'=>$products->id])}}" method="post">
+            <form action="{{url('/save', ['$product'=>$products->id])}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" value="{{$products->id}}">
+
+                <div class="form-group">
+                    <label>
+                    <img src="{{$products->image}}" alt="image" style="max-width: 290px">
+                    </label>
+                    <input type="file" class="form-control" name="image" value="{{$products->image}}">
+                </div>
+
                 <div class="form-group">
                     <label>
                         NAME :
@@ -33,10 +41,10 @@
                     <label>
                         DESCRIPTION :
                     </label>
-                    <input type="text" class="form-control" name="description" value="{{$products->description}}">
+                    <input size="60px" type="text" class="form-control" name="description" value="{{$products->description}}">
                 </div>
 
-
+                <br>
                 <div class="form-group">
                     <button class="btn btn-success">SAVE ITEM</button>
                     <!-- Button trigger modal -->
@@ -66,7 +74,7 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
                                 </button>
-                                <a class="btn btn-danger" href="{{url('/product/delete', ['$product'=>$products->id])}}">Delete</a>
+                                <a class="btn btn-danger" href="{{url('/delete', ['$product'=>$products->id])}}">Delete</a>
                             </div>
                         </div>
                     </form>

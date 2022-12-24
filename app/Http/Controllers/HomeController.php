@@ -70,6 +70,15 @@ class HomeController extends Controller
         ]);
     }
 
+    public function edit($id)
+    {
+//        $products = new Products;
+
+        return view('edit', [
+            'products' => Products::find($id)
+        ]);
+    }
+
     public function addToCart(Request $r)
     {
 //      if($r->session()->get('user')['id']){
@@ -98,7 +107,7 @@ class HomeController extends Controller
         //image
         $validated=$request->validate([
             'prname' => 'required|max:255',
-            'price' => 'required|numeric',
+            'price' => 'required',
             'description'=> 'required|max:1000',
             'image'=> 'required|image|max:2048'
         ]);

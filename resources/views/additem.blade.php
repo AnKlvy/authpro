@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row mt-5">
         <div class="col-6 offset-3">
-            <form action="/product/create" method="post" enctype="multipart/form-data">
+            <form action="/create" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     @csrf
                     <label>Name</label>
@@ -34,8 +34,8 @@
                 <div class="form-group">
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" name="image" class="custom-file-input">
-                            <label class="custom-file-label">Выберите изображение</label>
+                            <label>Image</label>
+                            <input type="file" name="image" class="form-control">
                         </div>
                     </div>
                 </div>
