@@ -20,13 +20,13 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="storage/localimages/carousel/GIT_-Fame_20th_EN.webp" class="d-block w-100" alt="1....................">
+                <img src="storage/carousel/GIT_-Fame_20th_EN.webp" class="d-block w-100" alt="1....................">
             </div>
             <div class="carousel-item">
-                <img src="storage/localimages/carousel/GIT_JaD_Vintage_EN.webp" class="d-block w-100" alt="2....................">
+                <img src="storage/carousel/GIT_JaD_Vintage_EN.webp" class="d-block w-100" alt="2....................">
             </div>
             <div class="carousel-item">
-                <img src="storage/localimages/carousel/MS_50-Years-Deals.webp" class="d-block w-100" alt="3....................">
+                <img src="storage/carousel/MS_50-Years-Deals.webp" class="d-block w-100" alt="3....................">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
