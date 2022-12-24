@@ -94,6 +94,7 @@ class HomeController extends Controller
         $product->prname = $r->prname;
         $product->price = $r->price;
         $product->description = $r->description;
+
 //        $url = $r->file('image')->store('images');
 //        $product->image = $url;
         $product->save();
@@ -129,6 +130,16 @@ class HomeController extends Controller
         $product->prname = $r->prname;
         $product->price = $r->price;
         $product->description = $r->description;
+        if($r->image!=null){
+            $validated=$r->validate([
+                'image'=> 'required|image|max:2048'
+            ]);
+
+            $fileName = time().$r->file('image')->getClientOriginalName();
+            $image_path = $r->file('image')->storeAs('products', $fileName,'public');
+            $validated['image'] = '/storage/'.$image_path;
+        $product->image = $validated['image'];
+        }
         $product->save();
         return redirect('/');
     }

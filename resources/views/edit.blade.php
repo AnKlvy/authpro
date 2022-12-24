@@ -41,9 +41,7 @@
                     <label>
                         DESCRIPTION :
                     </label>
-                    <textarea class="form-control" rows="3" name="description">
-{{$products->description}}
-                    </textarea>
+                    <textarea class="form-control" rows="3" name="description">{{$products->description}}</textarea>
                 </div>
 
                 <br>
