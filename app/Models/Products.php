@@ -19,7 +19,7 @@ class Products extends Model
     ];
 
 //    public function customers(){
-//        return $this->belongsToMany(Customers::class, 'carts', 'product_id', 'customer_id')->using(Cart::class);
+//        return $this->belongsToMany(Customers::class, 'carts', 'product_id', 'customer_id')->using(Carts::class);
 //
 //    }
 
@@ -32,7 +32,7 @@ class Products extends Model
     }
 
     public function userBought(){
-        return $this->belongsToMany(User::class, 'carts')
+        return $this->belongsToMany(User::class, 'carts','product_id')
             //Vot tut vosmozhno nuzhno pomenyat biblioteku
             //Seichas stoit relations belongsToMany
             ->withTimestamps()

@@ -28,7 +28,7 @@ class User extends Authenticatable
     }
 
     public function productBought(){
-        return $this->belongsToMany(Products::class, 'carts')
+        return $this->belongsToMany(Products::class, 'carts', 'user_id','product_id')
             //Vot tut vosmozhno nuzhno pomenyat biblioteku
                 //Seichas stoit relations
             ->withTimestamps()

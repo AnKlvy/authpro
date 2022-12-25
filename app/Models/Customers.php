@@ -19,7 +19,7 @@ class Customers extends Model
 //    }
 
 //    public function products(){
-//        return $this->belongsToMany(Products::class, 'carts', 'customer_id', 'product_id')->using(Cart::class);
+//        return $this->belongsToMany(Products::class, 'carts', 'customer_id', 'product_id')->using(Carts::class);
 //    }
 
 //    public function shipments(){

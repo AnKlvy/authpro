@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
+use App\Models\Carts;
 use App\Models\Customers;
 use App\Models\Products;
 use Illuminate\Http\Request;
@@ -99,7 +99,7 @@ class HomeController extends Controller
 //      if($r->session()->get('user')['id']){
 //          return 'hello';
 //      }
-//$cart = new Cart;
+//$cart = new Carts;
 //$cart->user_id=$r->session()->get('user')['id'];
 
 //        $product = Products::find($r->prid);
