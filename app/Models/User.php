@@ -26,6 +26,14 @@ class User extends Authenticatable
     public function isAdmin(){
         return $this->role()->where('slug', 'admin')->exists();
     }
+
+    public function productBought(){
+        return $this->belongsToMany(Products::class, 'cart')
+            //Vot tut vosmozhno nuzhno pomenyat biblioteku
+                //Seichas stoit relations
+            ->withTimestamps()
+            ->withPivot('number', 'status');
+    }
     /**
      * The attributes that are mass assignable.
      *

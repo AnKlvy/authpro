@@ -15,9 +15,13 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
+            //Eto nepomnyu zachem
 //            $table->unsignedBigInteger('product_id');
             $table->string("cusname");
-            $table->foreignId('user_id')->constrained('users');
+
+            //rudimenti, vmesto etogo ispolozavalas tablica user napryavuyu
+//            (dlya tablici)
+//            $table->foreignId('user_id')->constrained('users');
 //            $table->foreignId('product_id')->constrained('products');
 
             $table->timestamps();

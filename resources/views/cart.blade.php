@@ -60,7 +60,7 @@
 
 
                                     <hr class="my-4">
-                                    @endforeach
+{{--                                    @endforeach--}}
                                     <div class="row mb-4 d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2">
                                             <img
@@ -129,10 +129,6 @@
 
                                     <hr class="my-4">
 
-                                    <div class="pt-5">
-                                        <h6 class="mb-0"><a href="#!" class="text-body"><i
-                                                    class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 bg-grey">
@@ -156,14 +152,6 @@
                                         </select>
                                     </div>
 
-                                    <h5 class="text-uppercase mb-3">Give code</h5>
-
-                                    <div class="mb-5">
-                                        <div class="form-outline">
-                                            <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form3Examplea2">Enter your code</label>
-                                        </div>
-                                    </div>
 
                                     <hr class="my-4">
 
@@ -175,7 +163,10 @@
                                     <button type="button" class="btn btn-dark btn-block btn-lg"
                                             data-mdb-ripple-color="dark">Register</button>
 
+
                                 </div>
+                                <a  class="btn btn-dark btn-block btn-lg"
+                                    data-mdb-ripple-color="dark" href="/">Back to store</a>
                             </div>
                         </div>
                     </div>

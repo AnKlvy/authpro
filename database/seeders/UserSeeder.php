@@ -23,6 +23,12 @@ class UserSeeder extends Seeder
             'password'=> Hash::make('password')
         ]);
 
+        $user2= User::create([
+            'name'=>'user',
+            'email'=>'a@gmail.com',
+            'password'=> Hash::make('password')
+        ]);
+
         $role = Role::create([
             'name'=>'admin',
             'slug'=>'admin'
@@ -36,6 +42,11 @@ class UserSeeder extends Seeder
         DB::table('user_roles')->insert([
             'user_id'=>$user->id,
             'role_id' =>$role->id
+        ]);
+
+        DB::table('user_roles')->insert([
+            'user_id'=>$user2->id,
+            'role_id' =>$role2->id
         ]);
     }
 }

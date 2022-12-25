@@ -18,10 +18,10 @@ class Products extends Model
 //        'proddate'
     ];
 
-    public function customers(){
-        return $this->belongsToMany(Customers::class, 'carts', 'product_id', 'customer_id')->using(Cart::class);
-
-    }
+//    public function customers(){
+//        return $this->belongsToMany(Customers::class, 'carts', 'product_id', 'customer_id')->using(Cart::class);
+//
+//    }
 
     public function shipments(){
         return $this->belongsToMany(Shipments::class)->using(Products_Shipments::class);
@@ -31,7 +31,13 @@ class Products extends Model
         return $this->belongsToMany(Categories::class)->using(Categories_Products::class);
     }
 
-
+    public function userBought(){
+        return $this->belongsToMany(User::class, 'cart')
+            //Vot tut vosmozhno nuzhno pomenyat biblioteku
+            //Seichas stoit relations belongsToMany
+            ->withTimestamps()
+            ->withPivot('number', 'status');
+    }
 
 
 }
