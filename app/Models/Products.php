@@ -32,7 +32,7 @@ class Products extends Model
     }
 
     public function userBought(){
-        return $this->belongsToMany(User::class, 'cart')
+        return $this->belongsToMany(User::class, 'carts')
             //Vot tut vosmozhno nuzhno pomenyat biblioteku
             //Seichas stoit relations belongsToMany
             ->withTimestamps()

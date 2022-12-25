@@ -14,9 +14,12 @@
     <div id="carouselExampleIndicators" class=" carousel slide" data-bs-ride="true">
 
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -29,11 +32,13 @@
                 <img src="storage/carousel/MS_50-Years-Deals.webp" class="d-block w-100" alt="3....................">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
@@ -62,43 +67,46 @@
                     }
                 </style>
 
-                <div
-                    class="col-md-6 col-lg-4 col-xl-3"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal{{$product->id}}"
-                    style="cursor: pointer">
-                    <div id="product{{$product->id}}" class="single-product">
-                        <div class="part-1" >
 
-                            <!--style="background: url({$product->image}}) no-repeat center;background-size: cover;transition: all 0.3s"-->
-                            <ul>
-                                {{--                                <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>--}}
-                                {{--                                <li><a href="#"><i class="fas fa-heart"></i></a></li>--}}
-                                {{--                                <li><a href="#"><i class="fas fa-plus"></i></a></li>--}}
+
+
+                    <div
+                        class="col-md-6 col-lg-4 col-xl-3"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal{{$product->id}}"
+                        style="cursor: pointer">
+                        <div id="product{{$product->id}}" class="single-product">
+                            <div class="part-1">
+
+                                <!--style="background: url({$product->image}}) no-repeat center;background-size: cover;transition: all 0.3s"-->
+                                <ul>
+                                    {{--                                <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>--}}
+                                    {{--                                <li><a href="#"><i class="fas fa-heart"></i></a></li>--}}
+                                    {{--                                <li><a href="#"><i class="fas fa-plus"></i></a></li>--}}
                                     @if(Auth::user()->isAdmin())
                                         <li><a href="{{url('edit', $product->id)}} "
                                                style="width: 70px; background: #53a403; color:white;"><i>Edit</i></a>
                                         </li>
-                                    @endif
-{{--                                <li><a class="bg-danger" href="{{url('details', $product->id)}} "--}}
-{{--                                       style="width: 70px; color:white;"><i>Details</i></a>--}}
-                                </li>
-{{--                                <li> <button type="button" class="btn btn-primary bg-danger" style="border-radius: 0; border-color: darkred" data-bs-toggle="modal" data-bs-target="#exampleModal{{$product->id}}">--}}
-{{--                                        <i>Details</i>--}}
-{{--                                    </button></li>--}}
+                                        @endif
+                                        {{--                                <li><a class="bg-danger" href="{{url('details', $product->id)}} "--}}
+                                        {{--                                       style="width: 70px; color:white;"><i>Details</i></a>--}}
+                                        </li>
+                                        {{--                                <li> <button type="button" class="btn btn-primary bg-danger" style="border-radius: 0; border-color: darkred" data-bs-toggle="modal" data-bs-target="#exampleModal{{$product->id}}">--}}
+                                        {{--                                        <i>Details</i>--}}
+                                        {{--                                    </button></li>--}}
 
-                            </ul>
+                                </ul>
+                            </div>
+                            <div class="part-2">
+                                <h3 class="product-title">{{$product->prname}}</h3>
+                                {{--                            <h4 class="product-old-price">$79.99</h4>--}}
+                                <h4 class="product-price text-danger">${{$product->price}}</h4>
+                            </div>
                         </div>
-                        <div class="part-2">
-                            <h3 class="product-title">{{$product->prname}}</h3>
-                            {{--                            <h4 class="product-old-price">$79.99</h4>--}}
-                            <h4 class="product-price text-danger">${{$product->price}}</h4>
-                        </div>
+                        <!-- Modal -->
+                        @include('details')
                     </div>
-                    @include('details')
 
-                </div>
-                <!-- Modal -->
 
             @endforeach
         </div>

@@ -23,11 +23,12 @@ Route::get('/details/{id}', [\App\Http\Controllers\HomeController::class, 'detai
 Route::get('/p3', [\App\Http\Controllers\HomeController::class, 'p3']);
 Route::get('/p4', [\App\Http\Controllers\HomeController::class, 'p4']);
 Route::get('/p5', [\App\Http\Controllers\HomeController::class, 'p5']);
+Route::post('/addToCart/{product}', [\App\Http\Controllers\HomeController::class, 'addToCart']);
 Route::group(['middleware' => ['auth:web', 'admin']], function () {
     Route::get('/edit/{id}', [\App\Http\Controllers\HomeController::class, 'edit']);
     Route::post('/create', [\App\Http\Controllers\HomeController::class, 'create']);
     Route::post('/save/{product}', [\App\Http\Controllers\HomeController::class, 'save']);
-    Route::post('/addToCart', [\App\Http\Controllers\HomeController::class, 'addToCart']);
+
     /*get используктся потому что он в модалке*/
     Route::get('/delete/{product}', [\App\Http\Controllers\HomeController::class, 'delete']);
 });
