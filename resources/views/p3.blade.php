@@ -34,6 +34,7 @@
         </div>
     </div>
 </div>
+{{\Illuminate\Support\Facades\Auth::id()}}
 </body>
 </html>
 <?php

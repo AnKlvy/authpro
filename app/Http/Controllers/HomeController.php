@@ -32,9 +32,10 @@ class HomeController extends Controller
         ]);
     }
 
-    public function p4()
+    public function p3()
     {
-        return view('p4');
+//        $products =Products::all();
+        return view('p3');
     }
 
     public function p5()
@@ -79,25 +80,37 @@ class HomeController extends Controller
         ]);
     }
 
-    public function addToCart(Request $r)
+    public function addToCart(Request $r, Products $p)
     {
+
+        $r->validate([
+            'number'=>'required|min:1'
+        ]);
+
+        $productBought = Auth::user()->productBought()->where('product_id',$p->id)->first();
+
+        if($productBought!=null){
+            Auth::user()->productBought()->updateExsistingPivot($p->id, ['number'=>$r->input('number')]);
+        }
+        else{
+            Auth::user()->productBought()->attach($p->id, ['number'=>$r->input('number')]);
+        }
+
 //      if($r->session()->get('user')['id']){
 //          return 'hello';
 //      }
 //$cart = new Cart;
 //$cart->user_id=$r->session()->get('user')['id'];
 
-        $product = Products::find($r->prid);
+//        $product = Products::find($r->prid);
 //        $customer = Customers::find
 //        $customer = Customers::find(Auth::id());
 //        $product->customers()->attach(Auth::user());
-        $product->prname = $r->prname;
-        $product->price = $r->price;
-        $product->description = $r->description;
+//        $product->prname = $r->prname;
+//        $product->price = $r->price;
+//        $product->description = $r->description;
 
-//        $url = $r->file('image')->store('images');
-//        $product->image = $url;
-        $product->save();
+
         return redirect('/');
 
 
@@ -141,7 +154,9 @@ class HomeController extends Controller
         $product->image = $validated['image'];
         }
         $product->save();
-        return redirect('/');
+//        Vozvrazhayet s posta na etu zhe stranicu
+//        return back();
+        return(redirect('/'));
     }
 
     public function delete(Products $product)
